@@ -135,12 +135,14 @@ public class Port {
         StringBuilder Modified = new StringBuilder("Containers checked: \n");
         for (int j = 0; j < 10; j++) {
             for (int k = 0; k < 12; k++) {
-                if (storage[j][k].getWeight()<=weight) {
-                    storage[j][k].setInspected(true);
-                    Modified.append("ID: " + storage[j][k].getIdContainer() + "\n" +
-                                    "Sending: " + storage[j][k].getSendingCompany() + "\n" +
-                                    "Weight: " + storage[j][k].getWeight() + "\n" +
-                                    "Custom status: Checked \n\n");
+                if(storage[j][k]!=null){
+                    if (storage[j][k].getWeight()<=weight && storage[j][k]!=null) {
+                        storage[j][k].setInspected(true);
+                        Modified.append("ID: " + storage[j][k].getIdContainer() + "\n" +
+                                "Sending: " + storage[j][k].getSendingCompany() + "\n" +
+                                "Weight: " + storage[j][k].getWeight() + "\n" +
+                                "Custom status: Checked \n\n");
+                    }
                 }
             }
         }
